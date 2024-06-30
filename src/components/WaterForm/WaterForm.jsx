@@ -108,7 +108,6 @@ const WaterForm = ({ initialData, onSubmit, onClose, type }) => {
                 min="1"
                 onChange={(e) => {
                   field.onChange(e);
-                  console.log('Input amount:', e.target.value);
                 }}
               />
             )}
