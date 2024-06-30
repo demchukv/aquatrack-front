@@ -8,7 +8,7 @@ const UserPanel = () => {
   const user = useSelector(selectUserInfo);
   const getUserName = () => {
     if(user.name === "" || !user.name){
-      const emailParts = user.email.split('@');
+      const emailParts = user.email.toString().split('@');
       return emailParts[0];
     }
     return user.name;
