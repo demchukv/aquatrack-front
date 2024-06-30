@@ -16,7 +16,7 @@ const UserPanel = () => {
 
     return (
         <div className={css.hiUserWrapper}>
-            <h1 className={css.hiUser}>{t('hello')},
+            <h1 className={css.hiUser}>{t('hello')},{' '}
               <span className={css.userName}>{getUserName()}</span>
             </h1>
         </div>
