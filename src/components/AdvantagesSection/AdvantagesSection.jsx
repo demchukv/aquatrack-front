@@ -26,15 +26,15 @@ export const AdvantagesSection = () => {
       <div className={css.customersBox}>
         <ul className={css.customersList}>
           <li className={css.customersItem}>
-            <img className={css.customersImg} src={user1} alt="user1" />
+            <img className={css.customersImg} src={user1} alt="user1" width={43} height={43} />
           </li>
 
           <li className={css.customersItem}>
-            <img className={css.customersImg} src={user2} alt="user2" />
+            <img className={css.customersImg} src={user2} alt="user2" width={43} height={43} />
           </li>
 
           <li className={css.customersItem}>
-            <img className={css.customersImg} src={user3} alt="user3" />
+            <img className={css.customersImg} src={user3} alt="user3" width={43} height={43} />
           </li>
         </ul>
 

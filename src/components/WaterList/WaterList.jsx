@@ -8,7 +8,6 @@ import {selectWaterDaily} from '../../redux/water/selectors';
 const WaterList = ({selectedDate}) => {
 
     const dayWater = useSelector(selectWaterDaily);
-console.log(dayWater)
 
         return (
             <div className={css.container}>
