@@ -4,6 +4,7 @@ import AddWaterBtn from '../AddWaterBtn/AddWaterBtn';
 import ChooseDate from '../ChooseDate/ChooseDate';
 
 const DailyInfo = ({ selectedDate }) => {
+
   return (
     <div className={css.dailyInfo}>
       <div className={css.dailyHeader}>

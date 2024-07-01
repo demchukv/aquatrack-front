@@ -39,7 +39,6 @@ const WaterItem = ({ selectedDate, day, id }) => {
   };
 
   const handleUpdateData = async data => {
-
     try {
       await dispatch(editWater({id, ...data}));
       setSuccess(true);

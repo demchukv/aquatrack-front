@@ -22,6 +22,7 @@ const UserBar = () => {
   };
 
   return (
+    user &&
     <div className={css.userBarWrapper}>
       <div className={css.userBarMainWrapper}>
         <p className={css.userName}>{getUserName()}</p>
