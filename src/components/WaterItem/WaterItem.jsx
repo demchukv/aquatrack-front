@@ -9,6 +9,7 @@ import { editWater } from '../../redux/water/operations';
 import toast, { Toaster } from 'react-hot-toast';
 
 const WaterItem = ({ selectedDate, day, id }) => {
+  
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
