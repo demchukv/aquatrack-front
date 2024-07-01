@@ -14,6 +14,7 @@ const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage'));
 const TrackerPage = lazy(() => import('./pages/TrackerPage/TrackerPage'));
 const ForgotPasswordPage = lazy(() => import('./pages/ForgotPasswordPage/ForgotPasswordPage'));
 const ResetPasswordPage = lazy(() => import('./pages/ResetPasswordPage/ResetPasswordPage'));
+const EmailVerifyPage = lazy(() => import('./pages/EmailVerifyPage/EmailVerifyPage'));
 
 const App = () => {
   const isRefreshing = useSelector(selectIsLoading);
@@ -26,6 +27,7 @@ const App = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/reset-password/:token" element={<ResetPasswordPage />} />
+      <Route path="/email-verify/:verificationToken" element={<EmailVerifyPage />} />
       <Route
           path="/signup"
           element={

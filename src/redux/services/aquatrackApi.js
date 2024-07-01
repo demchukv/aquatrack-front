@@ -27,8 +27,8 @@ export const requestLogout = async () => {
   return data;
 };
 
-export const requestSendVerify = async (verificationToken, formData) => {
-  const { data } = await publicInstance.post(`/auth/verify/${verificationToken}`,formData);
+export const requestSendVerify = async (verificationToken) => {
+  const { data } = await publicInstance.get(`/auth/verify/${verificationToken}`);
   return data;
 };
 

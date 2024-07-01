@@ -78,9 +78,9 @@ export const logout = createAsyncThunk(
 
 export const sendVerify = createAsyncThunk(
   'auth/verify',
-  async ({ verificationToken, formData }, thunkAPI) => {
+  async (verificationToken, thunkAPI) => {
     try {
-      const res = await requestSendVerify(verificationToken, formData);
+      const res = await requestSendVerify(verificationToken);
 
       return res;
     } catch (err) {
