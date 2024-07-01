@@ -97,8 +97,9 @@ const CalendarStat = ({selectedDate, handleClick}) => {
     else daysOfSelectedMonth[dayNumber].percentageOfNorma = Number(day.percentageOfNorma.toFixed(0));
   }
   isErrorWaterMonth && toast.error(isErrorWaterMonth || t('errorOccured'));
+
   return isErrorWaterMonth ? (<Toaster position="top-center" />) :
-  (dataForSelectedMonth &&
+  (dataForSelectedMonth && !isLoadingWaterMonth &&
     <div className={css.calendar}>
       <div className={css.calendarHead}>
         <div className={css.calendarTitle}>{t('month')}</div>
