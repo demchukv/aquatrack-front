@@ -4,7 +4,7 @@ import styles from './WaterModal.module.css';
 import { BasicModal } from '../BasicModal/BasicModal';
 
 const WaterModal = ({ isOpen, onClose, initialData, onSubmit, type }) => {
-  console.log(initialData);
+
   const handleSubmit = data => {
     const dataForSave = {
       amount: data.amount,

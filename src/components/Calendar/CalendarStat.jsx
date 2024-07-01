@@ -99,7 +99,7 @@ const CalendarStat = ({selectedDate, handleClick}) => {
   isErrorWaterMonth && toast.error(isErrorWaterMonth || t('errorOccured'));
 
   return isErrorWaterMonth ? (<Toaster position="top-center" />) :
-  (dataForSelectedMonth && !isLoadingWaterMonth &&
+  (dataForSelectedMonth &&
     <div className={css.calendar}>
       <div className={css.calendarHead}>
         <div className={css.calendarTitle}>{t('month')}</div>
