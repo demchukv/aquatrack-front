@@ -99,7 +99,6 @@ const WaterItem = ({ selectedDate, day, id }) => {
         </BasicModal>
       )}
       {isEditModalOpen && (
-        <BasicModal isOpen={isEditModalOpen} onClose={handleCloseEditModal}>
           <WaterModal
             isOpen={isEditModalOpen}
             onSubmit={handleUpdateData}
@@ -107,7 +106,6 @@ const WaterItem = ({ selectedDate, day, id }) => {
             initialData={initialData}
             type="edit"
           />
-        </BasicModal>
       )}
     </div>
   );

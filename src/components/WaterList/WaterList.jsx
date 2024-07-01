@@ -25,7 +25,6 @@ const WaterList = ({selectedDate}) => {
                 <ul className={css.waterList}>
                     {dayWater.map((day) => (
                         <li key={day._id} >
-                          {console.log(day)}
                             <WaterItem selectedDate={selectedDate} day={day} id={day._id} />
                         </li>
                     ))}
