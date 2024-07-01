@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -40,19 +40,6 @@ export default function UserSettingsForm({ closeModal, userSettings }) {
     return totalHours;
   };
 
-  const calculateV = () => {
-    const { gender, weight, timeActivity } = watch();
-    if(typeof weight === 'undefined' || typeof timeActivity === 'undefined' || typeof gender === 'undefined'){
-      return;
-    }
-    if (gender === 'male') {
-      const vMale = weight * 0.04 + convertToHours(timeActivity) * 0.6;
-      setV(vMale.toFixed(1));
-    } else if (gender === 'female') {
-      const vFemale = weight * 0.03 + convertToHours(timeActivity) * 0.4;
-      setV(vFemale.toFixed(1));
-    }
-  };
 
   const {
     register,
@@ -73,11 +60,9 @@ export default function UserSettingsForm({ closeModal, userSettings }) {
     setValue('dailyNorma', userSettings.dailyNorma);
     setValue('timeActivity', userSettings.timeActivity);
     setValue('gender', userSettings.gender);
+    calculateV();
   }, [userSettings, setValue]);
 
-  useEffect(() => {
-    calculateV();
-  }, [calculateV]);
 
   const onSubmit = async data => {
     try {
@@ -89,6 +74,20 @@ export default function UserSettingsForm({ closeModal, userSettings }) {
       toast.error(error || 'Failed to update data!');
     }
   };
+
+  const calculateV = useCallback(() => {
+    const { gender, weight, timeActivity } = watch();
+    if(typeof weight === 'undefined' || typeof timeActivity === 'undefined' || typeof gender === 'undefined'){
+      return;
+    }
+    if (gender === 'male') {
+      const vMale = weight * 0.04 + convertToHours(timeActivity) * 0.6;
+      setV(vMale.toFixed(1));
+    } else if (gender === 'female') {
+      const vFemale = weight * 0.03 + convertToHours(timeActivity) * 0.4;
+      setV(vFemale.toFixed(1));
+    }
+  }, [watch]);
 
   return (
     isError ? (<Toaster position="top-center" />) :
