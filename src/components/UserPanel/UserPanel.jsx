@@ -15,7 +15,7 @@ const UserPanel = () => {
   };
 
     return (
-      user &&
+      user && user.name &&
         <div className={css.hiUserWrapper}>
             <h1 className={css.hiUser}>{t('hello')},{' '}
               <span className={css.userName}>{getUserName()}</span>

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 
 
-Modal.setAppElement('#root');
+// Modal.setAppElement('#root');
 
 export const BasicModal = ({ isOpen, onClose, children, className=css.modal }) => {
 

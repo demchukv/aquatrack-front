@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import Loader from '../Loader/Loader';
 import { selectIsLoading } from '../../redux/water/selectors';
 
-const WaterForm = ({ initialData, onSubmit, onClose, type }) => {
+const WaterForm = ({ initialData, onSubmit,type }) => {
   const schema = Yup.object().shape({
     amount: Yup.number().required('Amount is required').min(1, 'Amount must be at least 1'),
     time: Yup.string().required('Time is required').matches(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, 'Time must be in HH:mm format'),
@@ -117,12 +117,6 @@ const WaterForm = ({ initialData, onSubmit, onClose, type }) => {
           <div className={styles.btnSave}>Save</div>
         </button>
       </div>
-      <button type="button" className={styles.closeBtn} onClick={onClose}>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 6L6 18" stroke="#2F2F2F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M6 6L18 18" stroke="#2F2F2F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </button>
     </form>
     </>
   );
@@ -134,7 +128,6 @@ WaterForm.propTypes = {
     time: PropTypes.string,
   }),
   onSubmit: PropTypes.func.isRequired,
-  onClose: PropTypes.func.isRequired,
   type: PropTypes.oneOf(['add', 'edit']).isRequired,
 };
 

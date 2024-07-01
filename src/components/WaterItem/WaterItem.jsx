@@ -9,7 +9,6 @@ import { editWater } from '../../redux/water/operations';
 import toast, { Toaster } from 'react-hot-toast';
 
 const WaterItem = ({ selectedDate, day, id }) => {
-
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
@@ -41,7 +40,8 @@ const WaterItem = ({ selectedDate, day, id }) => {
 
   const handleUpdateData = async data => {
     try {
-      await dispatch(editWater({id, ...data}));
+      await dispatch(editWater({ id, ...data }));
+      handleCloseEditModal();
       setSuccess(true);
       toast.success('Water updated');
     } catch (error) {
@@ -56,42 +56,45 @@ const WaterItem = ({ selectedDate, day, id }) => {
     selectedDate: selectedDate.fullDate,
   };
 
-  return success ?
-  (
+  return success ? (
     <Toaster position="top-center" />
-  ) :
-  (
-    <div className={css.item}>
+  ) : (
+    <>
+      <div className={css.item}>
+        <Icon width={'38'} height={'38'} iconName="glass" styles={css.icon} />
 
-      <Icon width={'38'} height={'38'} iconName="glass" styles={css.icon} />
-
-      <div className={css.itemContent}>
-        <div className={css.itemAmount}>
-          <p>{day.amount} ml</p>
+        <div className={css.itemContent}>
+          <div className={css.itemAmount}>
+            <p>{day.amount} ml</p>
+          </div>
+          <div className={css.itemDate}>
+            <p>{timeString}</p>
+          </div>
         </div>
-        <div className={css.itemDate}>
-          <p>{timeString}</p>
+
+        <div className={css.btns}>
+          <button type="button" className={css.changeBtn} onClick={handleEdit}>
+            <Icon
+              width={'14'}
+              height={'14'}
+              iconName="edit"
+              styles={css.btnIcon}
+            />
+          </button>
+
+          <button
+            type="button"
+            className={css.changeBtn}
+            onClick={handleDelete}
+          >
+            <Icon
+              width={'14'}
+              height={'14'}
+              iconName="trash"
+              styles={css.btnIcon}
+            />
+          </button>
         </div>
-      </div>
-
-      <div className={css.btns}>
-        <button type="button" className={css.changeBtn} onClick={handleEdit}>
-          <Icon
-            width={'14'}
-            height={'14'}
-            iconName="edit"
-            styles={css.btnIcon}
-          />
-        </button>
-
-        <button type="button" className={css.changeBtn} onClick={handleDelete}>
-          <Icon
-            width={'14'}
-            height={'14'}
-            iconName="trash"
-            styles={css.btnIcon}
-          />
-        </button>
       </div>
       {isDeleteModalOpen && (
         <BasicModal isOpen={isDeleteModalOpen} onClose={handleCloseDeleteModal}>
@@ -99,15 +102,15 @@ const WaterItem = ({ selectedDate, day, id }) => {
         </BasicModal>
       )}
       {isEditModalOpen && (
-          <WaterModal
-            isOpen={isEditModalOpen}
-            onSubmit={handleUpdateData}
-            onClose={handleCloseEditModal}
-            initialData={initialData}
-            type="edit"
-          />
+        <WaterModal
+          isOpen={isEditModalOpen}
+          onSubmit={handleUpdateData}
+          onClose={handleCloseEditModal}
+          initialData={initialData}
+          type="edit"
+        />
       )}
-    </div>
+    </>
   );
 };
 
