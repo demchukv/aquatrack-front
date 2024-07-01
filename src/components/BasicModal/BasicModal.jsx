@@ -7,11 +7,11 @@ import PropTypes from 'prop-types';
 
 Modal.setAppElement('#root');
 
-export const BasicModal = ({ isOpen, onClose, children }) => {
+export const BasicModal = ({ isOpen, onClose, children, className=css.modal }) => {
 
   return (
     <Modal
-      className={css.modal}
+      className={className}
       isOpen={isOpen}
       onRequestClose={() => onClose()}
       overlayClassName={css.overlay}

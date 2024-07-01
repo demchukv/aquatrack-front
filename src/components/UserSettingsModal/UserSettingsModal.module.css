@@ -17,24 +17,5 @@
   flex-direction: column;
   gap: 24px;
   background: #fff;
-  border-radius: 15px;
-  padding: 40px 15px;
-  height: 90vh;
-  margin: auto 16px;
-  min-width: 288px;
-}
-
-@media screen and (min-width: 768px) {
-  .settingBox {
-    margin: auto 60px;
-  }
-
-}
-
-@media screen and (min-width: 1440px) {
-  .settingBox {
-    margin: auto 260px;
-  }
-
 }
 

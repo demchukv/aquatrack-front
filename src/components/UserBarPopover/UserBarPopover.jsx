@@ -54,7 +54,7 @@ const UserBarPopover = ({ isOpen }) => {
       </button>
 
       {activeModal === 'settings' && (
-        <BasicModal isOpen onClose={closeModal}>
+        <BasicModal isOpen onClose={closeModal} className={css.settingsModal}>
           <UserSettingsModal closeModal={closeModal} modIsOpen />
         </BasicModal>
       )}

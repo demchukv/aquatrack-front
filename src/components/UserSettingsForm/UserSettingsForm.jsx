@@ -75,6 +75,10 @@ export default function UserSettingsForm({ closeModal, userSettings }) {
     setValue('gender', userSettings.gender);
   }, [userSettings, setValue]);
 
+  useEffect(() => {
+    calculateV();
+  }, [calculateV]);
+
   const onSubmit = async data => {
     try {
       await dispatch(updateUserSettings(data)).unwrap();
