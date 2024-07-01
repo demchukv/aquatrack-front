@@ -32,21 +32,6 @@ const WaterList = ({selectedDate}) => {
         </div>
       )
     )
-
-        // return (
-        //   dayWater &&
-        //   (
-        //     <div className={css.container}>
-        //         <ul className={css.waterList}>
-        //             {dayWater.map((day) => (
-        //                 <li key={day._id} >
-        //                     <WaterItem selectedDate={selectedDate} day={day} id={day._id} />
-        //                 </li>
-        //             ))}
-        //         </ul>
-        //     </div>
-        //   )
-        // )
 }
 
 export default WaterList;

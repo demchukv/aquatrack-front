@@ -56,9 +56,7 @@ const WaterItem = ({ selectedDate, day, id }) => {
     selectedDate: selectedDate.fullDate,
   };
 
-  return success ? (
-    <Toaster position="top-center" />
-  ) : (
+  return  (
     <>
       <div className={css.item}>
         <Icon width={'38'} height={'38'} iconName="glass" styles={css.icon} />
@@ -110,6 +108,7 @@ const WaterItem = ({ selectedDate, day, id }) => {
           type="edit"
         />
       )}
+      {success && <Toaster />}
     </>
   );
 };
