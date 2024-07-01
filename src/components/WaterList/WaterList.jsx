@@ -10,6 +10,7 @@ const WaterList = ({selectedDate}) => {
     const dayWater = useSelector(selectWaterDaily);
 
         return (
+          dayWater &&
             <div className={css.container}>
                 <ul className={css.waterList}>
                     {dayWater.map((day) => (

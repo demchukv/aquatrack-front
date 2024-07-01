@@ -32,7 +32,6 @@
     "react-simple-timefield": "^3.3.1",
     "recharts": "^2.12.7",
     "redux": "^5.0.1",
-    "sass": "^1.77.6",
     "yup": "^1.4.0"
   },
   "eslintConfig": {
